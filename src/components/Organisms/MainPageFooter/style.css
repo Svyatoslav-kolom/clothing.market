@@ -1,0 +1,12 @@
+.main-page-footer {
+  height: 958px;
+  background-image: url('../../../assets/background/main-page-background-footer.png');
+  background-size:cover;
+  background-repeat: no-repeat;
+
+  display: flex; /* Используем Flexbox */
+  flex-direction: column; /* Располагаем элементы вертикально */
+  justify-content: flex-end; /* Размещаем содержимое у нижнего края */
+  align-items: center; /* Центрируем элементы по горизонтали */
+  padding-bottom: 40px; /* Отступ снизу */
+}
