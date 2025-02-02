@@ -15,11 +15,11 @@ import {
 import { ChevronDownIcon } from '@chakra-ui/icons';
 
 type Props = {
-  min?: number; // Минимальное значение
-  max?: number; // Максимальное значение
-  step?: number; // Шаг изменения
-  initialRange?: [number, number]; // Начальные значения диапазона
-  onChange?: (value: [number, number]) => void; // Callback при изменении диапазона
+  min?: number;
+  max?: number;
+  step?: number;
+  initialRange?: [number, number]; 
+  onChange?: (value: [number, number]) => void;
 };
 
 export const PriceRangeSelector: React.FC<Props> = ({
@@ -34,7 +34,7 @@ export const PriceRangeSelector: React.FC<Props> = ({
   const handlePriceChange = (value: [number, number]) => {
     setPriceRange(value);
     if (onChange) {
-      onChange(value); // Передаем значения через callback
+      onChange(value);
     }
   };
 

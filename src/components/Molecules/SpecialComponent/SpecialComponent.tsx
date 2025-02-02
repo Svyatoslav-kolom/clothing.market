@@ -22,6 +22,11 @@ export const SpecialComponent: FC<Props> = ({ img, title, button }) => (
       {title}
     </Heading>
 
-    <Btn content={button} transparent={true} />
+    <Btn
+      content={button}
+      transparent={true}
+      width={212} color='white'
+      href="/catalog"
+    />
   </VStack>
 );

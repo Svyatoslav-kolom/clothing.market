@@ -21,7 +21,7 @@ export const CardCollection: FC<Props> = ({ backgroundImg, alt, text, path }) =>
       color: "black",
     }}
     _focus={{
-      outline: "none",  // Видаляє контур при фокусі
+      outline: "none",
     }}
   >
     <Image

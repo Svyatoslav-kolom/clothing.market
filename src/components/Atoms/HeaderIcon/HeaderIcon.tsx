@@ -2,22 +2,22 @@ import { FC } from "react";
 import { IconButton, IconProps } from "@chakra-ui/react";
 
 interface HeaderIconProps extends IconProps {
-  IconComponent: React.FC; // Компонент іконки
-  onClick?: () => void;    // Обробник кліку
+  IconComponent: React.FC;
+  onClick?: () => void;
 }
 
 export const HeaderIcon: FC<HeaderIconProps> = ({ IconComponent, onClick, ...rest }) => (
   <IconButton
-    icon={<IconComponent />}  // Передаємо іконку
+    icon={<IconComponent />}
     fontSize="24px"
     border="none"
     color="black"
     aria-label="header icon"
     onClick={onClick}
-    variant="ghost"  // Мінімалістичний стиль кнопки
+    variant="ghost"
     // @ts-ignore
-    type="button"  // Вказуємо тип "button", щоб уникнути конфлікту типів
-    {...rest} // Передаємо інші пропси
+    type="button"
+    {...rest}
 
     _focus={{
       boxShadow: "none",

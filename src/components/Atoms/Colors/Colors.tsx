@@ -7,13 +7,14 @@ interface Props {
 
 export const Colors: FC<Props> = ({ colors }) => (
   <HStack gap="16px">
-    <Text>
-      Colors
+    <Text fontWeight="bold">
+      Color
     </Text>
     {colors.map((color) => (
       <Box
         boxSize="24px"
         bg={color}
+        border="0.5px solid black"
       />
     ))}
   </HStack>

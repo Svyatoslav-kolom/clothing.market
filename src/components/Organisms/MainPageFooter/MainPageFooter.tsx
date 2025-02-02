@@ -14,7 +14,13 @@ export const MainPageFooter = () => (
       </Text>
 
       <Box mt="16px">
-        <Btn content="Discover Deals" transparent={true} />
+        <Btn
+          content="Discover Deals"
+          transparent={true}
+          width={212}
+          color='white'
+          href="/catalog"
+        />
       </Box>
     </VStack>
   </Box>

@@ -5,6 +5,6 @@ import svgr from 'vite-plugin-svgr';
 export default defineConfig({
   plugins: [
     react(),
-    svgr(), // Просто добавляем svgr без лишних опций
+    svgr(),
   ],
 });

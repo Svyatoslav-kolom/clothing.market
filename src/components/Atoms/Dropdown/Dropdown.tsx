@@ -4,6 +4,7 @@ import {
   MenuList,
   MenuItem,
   Button,
+  Box,
 } from "@chakra-ui/react"
 import { ChevronDownIcon } from "@chakra-ui/icons"
 import { useState } from "react"
@@ -11,8 +12,8 @@ import { useState } from "react"
 interface DropdownProps {
   placeholder: string
   options: string[]
-  value?: string[] // Если требуется управление из родительского компонента
-  onChange?: (value: string[]) => void // Коллбэк для обработки изменений
+  value?: string[]
+  onChange?: (value: string[]) => void
 }
 
 export const Dropdown: React.FC<DropdownProps> = ({
@@ -30,7 +31,13 @@ export const Dropdown: React.FC<DropdownProps> = ({
       : [...value, selectedValue]
 
     setInternalValue(newValue)
-    if (onChange) onChange(newValue)
+    onChange?.(newValue)
+  }
+
+  const renderDisplayValue = () => {
+    if (value.length === 0) return placeholder
+    if (value.length > 3) return `${value.length} selected`
+    return value.join(", ")
   }
 
   return (
@@ -38,7 +45,6 @@ export const Dropdown: React.FC<DropdownProps> = ({
       <MenuButton
         as={Button}
         rightIcon={<ChevronDownIcon />}
-        boxSizing="border-box"
         textAlign="left"
         width="100%"
         borderRadius="0"
@@ -46,55 +52,32 @@ export const Dropdown: React.FC<DropdownProps> = ({
         bg="transparent"
         fontWeight="medium"
         color="#4F4F4F"
-        _focus={{
-          boxShadow: "none",
-          outline: "none",
-        }}
-        _hover={{
-          boxShadow: "none",
-          border: "1px solid #E0E0E0",
-        }}
-        _active={{
-          boxShadow: "none",
-        }}
+        overflow="hidden"
+        whiteSpace="nowrap"
+        textOverflow="ellipsis"
+        _focus={{ boxShadow: "none" }}
+        _hover={{ border: "1px solid #E0E0E0" }}
+        _active={{ boxShadow: "none" }}
       >
-        {value.length > 0 ? value.join(", ") : placeholder}
+        {renderDisplayValue()}
       </MenuButton>
-      <MenuList
-        borderRadius="0"
-        p={0}
-        boxSizing="border-box"
-        minWidth="unset"
-        border="none"
-        _focus={{
-          boxShadow: "none",
-          outline: "none",
-        }}
-      >
+
+      <MenuList borderRadius="0" p={0} minWidth="unset" border="none">
         {options.map((option) => (
           <MenuItem
-            fontWeight="medium"
-            maxWidth="100%"
-            color="#4F4F4F"
             key={option}
+            fontWeight="medium"
+            color="#4F4F4F"
             onClick={() => handleSelect(option)}
             borderRadius="0"
             border="0.5px solid #E0E0E0"
-            boxSizing="border-box"
-            _focus={{
-              boxShadow: "none",
-              outline: "none",
-            }}
-            _hover={{
-              bg: "#F0F0F0",
-              border: "1px solid #E0E0E0",
-            }}
+            _focus={{ boxShadow: "none" }}
+            _hover={{ bg: "#F0F0F0", border: "1px solid #E0E0E0" }}
           >
-            {option}
+            {value.includes(option) ? `✓ ${option}` : option}
           </MenuItem>
         ))}
       </MenuList>
     </Menu>
-
   )
 }

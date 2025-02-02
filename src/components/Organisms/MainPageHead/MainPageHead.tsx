@@ -12,8 +12,20 @@ export const MainPageHead = () => (
         Discover our latest collections and styles
       </Text>
       <HStack mt="16px">
-        <Btn content="For Him" transparent={false} />
-        <Btn content="For Her" transparent={false} />
+        <Btn
+          content="For Him"
+          transparent={false}
+          width={212}
+          color='white'
+          href="/catalog"
+        />
+        <Btn
+          content="For Her"
+          transparent={false}
+          width={212}
+          color='white'
+          href="/catalog"
+        />
       </HStack>
     </VStack>
   </Box>

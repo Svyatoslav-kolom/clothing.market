@@ -3,7 +3,6 @@ import { HeaderButtons } from "../../Molecules/HeaderButtons";
 import BurgerMenu from "../../../assets/icons/BurgerMenu";
 import { HeaderIcon } from "../../Atoms/HeaderIcon";
 
-// Добавляем props для управления MenuDrawer
 type HeaderProps = {
   isOpen: boolean;
   onOpen: () => void;
@@ -27,7 +26,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpen }) => {
         <HeaderButtons />
         <HeaderIcon
           IconComponent={BurgerMenu}
-          onClick={onOpen} // Используем переданный onOpen
+          onClick={onOpen}
           aria-label="Open menu"
         />
       </Box>
